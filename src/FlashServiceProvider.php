@@ -1,10 +1,10 @@
 <?php
 
-namespace JoliMardi\LaravelFlash;
+namespace JoliMardi\Flash;
 
 use Illuminate\Support\ServiceProvider;
 
-class ContactFormServiceProvider extends ServiceProvider {
+class FlashServiceProvider extends ServiceProvider {
     public function boot() {
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
     }

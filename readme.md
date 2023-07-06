@@ -1,3 +1,8 @@
+# Que suis-je ?
+
+Ce plugin crée un nouveau ServiceProvider, qui sera ajouté à `config/app.php`, puis créer une facade qui permet une écriture simplifié dans le code 
+`Flash::function()` mais aussi de personnalisé l'alias pour utiliser dans les vues. 
+
 # Installation
 
 ```

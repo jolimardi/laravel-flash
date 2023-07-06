@@ -1,0 +1,16 @@
+{
+    "name": "jolimardi/laravel-flash",
+    "description": "A package for flash messages",
+    "autoload": {
+        "psr-4": {
+            "Jolimardi\\LaravelFlash\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Emilien Hodee",
+            "email": "hodeeemilien@gmail.com"
+        }
+    ],
+    "require": {}
+}

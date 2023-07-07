@@ -29,8 +29,6 @@ class FlashService {
         // si un $type est défini alors on cherche s'il y a des messages de ce type
         if ($type) {
             return isset($session[$type]) && !empty($session[$type]);
-        } else {
-            return !empty($session);
         }
 
         // Check s'il y a des messages dans la session en général

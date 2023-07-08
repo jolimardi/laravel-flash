@@ -32,11 +32,7 @@ class FlashService {
         }
 
         // Check s'il y a des messages dans la session en général
-        foreach ($session as $messages) {
-            if (!empty($messages)) {
-                return $session;
-            }
-        }
+        return !empty($session);
     }
 
     public static function message(string $type, string $message): void {

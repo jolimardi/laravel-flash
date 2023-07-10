@@ -26,23 +26,22 @@ class FlashService {
     public static function has(string $type = null): bool {
         $session = self::getSessionService();
 
-        // si un $type est défini alors on cherche s'il y a des messages de ce type
         if ($type) {
             return isset($session[$type]) && !empty($session[$type]);
-        }
-
-        // Check s'il y a des messages dans la session en général
-        foreach ($session as $messages) {
-            if (!empty($messages)) {
-                return $session;
+        } else {
+            foreach ($session as $messages) {
+                if (!empty($messages)) {
+                    return true;
+                }
             }
+            return false;
         }
     }
 
     public static function message(string $type, string $message): void {
         $session = self::getSessionService();
         $session[$type][] = $message;
-        session()->flash('_messages', $session); // Je crois que c'est mieux d'utiliser flash() ici, https://laravel.com/docs/10.x/session#flash-data
+        session()->flash('_messages', $session);
     }
 
     public static function error(string $message): void {
@@ -65,9 +64,7 @@ class FlashService {
         }
     }
 
-    /* Pour les views dans output() et renderMessage(), il va falloir que tu mettes les views dans le package (cf https://laravel.com/docs/10.x/packages#views) */
-
-    public static function output(bool $remove = true): string {
+    public static function output(bool $remove = false): string {
         $session = self::getSessionService();
         $output = '';
 

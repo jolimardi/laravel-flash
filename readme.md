@@ -65,5 +65,3 @@ Ajouter le component `<x-flash-messages />` dans un template blade, là où vous
 
 ## TODO 
 - Ajouter un publish pour founir un composant blade flash-messages
-- Finaliser la fonction output et renderMessage de FlashService
-- 

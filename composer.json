@@ -1,6 +1,8 @@
 {
     "name": "jolimardi/laravel-flash",
-    "description": "A package for flash messages",
+    "description": "Custom implementation of flash messages by Joli Mardi",
+    "type": "library",
+    "license": "GPL-3.0",
     "autoload": {
         "psr-4": {
             "Jolimardi\\LaravelFlash\\": "src/"
@@ -10,6 +12,10 @@
         {
             "name": "Emilien Hodee",
             "email": "hodeeemilien@gmail.com"
+        },
+        {
+            "name": "Romain Cherot",
+            "email": "romain@cherot.fr"
         }
     ],
     "require": {}

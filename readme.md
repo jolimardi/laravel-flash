@@ -9,7 +9,7 @@ Ce plugin crée un nouveau ServiceProvider, qui sera ajouté à `config/app.php`
 composer require jolimardi/laravel-flash
 ```
 
-Puis ajouter le provider dans `config/app.php` (à tester, normalement pas nécessaire) :
+Puis ajouter le provider dans `config/app.php` (Normalement pas nécessaire si la norme PSR-4 est respecté) :
 ```
 'providers' => ServiceProvider::defaultProviders()->merge([
     ...        
@@ -20,11 +20,17 @@ Puis ajouter le provider dans `config/app.php` (à tester, normalement pas néce
 Puis toujours dans `config/app.php`, ajouter l'alias personnalisé : 
 ```
 'aliases' => Facade::defaultAliases()->merge([
-        
-        'MyAlias' => JoliMardi\Flash\Flash::class,
+        'MyFlash' => JoliMardi\Flash\Flash::class,
     ])->toArray(),
 ```
-Note : Ne pas utiliser Flash en tant qu'alias, conflit avec la facade Laracast/Flash/Flash lors de l'utilisation dans une vue.
+Note : Ne pas utiliser Flash en tant qu'alias, conflit avec la facade Laracast/Flash/Flash lors de l'utilisation dans une vue. 
+
+`MyFlash` est l'alias par défaut de la façade, si vous souhaitez modifier l'alias penser à modifier le render de la vue dans `resource/views/vendor/flash-messages`.
+
+Pour finir, exécuter la commande : 
+```bash
+php artisan vendor:publish --provider="JoliMardi\Flash\FlashServiceProvider" --tag="views"
+```
 
 # Usage
 
@@ -64,4 +70,4 @@ Ajouter le component `<x-flash-messages />` dans un template blade, là où vous
 
 
 ## TODO 
-- Ajouter un publish pour founir un composant blade flash-messages
+- Ajouter un publish pour founir un composant blade flash-messages (Fait le 02/08/23)

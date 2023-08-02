@@ -64,7 +64,7 @@ class FlashService {
         }
     }
 
-    public static function output(bool $remove = false): string {
+    /*     public static function output(bool $remove = false): string {
         $session = self::getSessionService();
         $output = '';
 
@@ -85,5 +85,5 @@ class FlashService {
 
     protected static function renderMessage(string $type, string $message) {
         return view('Flash::output', compact('type', 'message'))->render();
-    }
+    } */
 }

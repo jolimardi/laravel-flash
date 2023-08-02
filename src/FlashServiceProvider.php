@@ -4,6 +4,7 @@ namespace JoliMardi\Flash;
 
 
 use JoliMardi\Flash\FlashService;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Foundation\Application;
 
@@ -16,6 +17,15 @@ class FlashServiceProvider extends ServiceProvider {
         $this->app->singleton('Flash', function (Application $app) {
             return new FlashService;
         });
+
+        $this->publishes(
+            [
+                __DIR__ . '/views' => resource_path('views/vendor/flash-messages'),
+            ],
+            'views'
+        );
+
+        Blade::component('flash-messages', \JoliMardi\Flash\Components\Message::class);
     }
     public function register() {
     }
